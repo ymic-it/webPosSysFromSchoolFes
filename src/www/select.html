@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+<script type="text/javascript" src="./js/functions.js"></script>
+<script type="text/javascript" src="./js/select.js"></script>
+</head>
+<body onLoad="HTML_Load('topbar.html','top');">
+  <div id="top"></div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-1">
+      <div class="row">
+    <div id="itemList" class="row">
+
+    </div>
+  </div>
+    </div>
+</div>
+</body>
+
+
+<!-- Wide card with share menu button -->
+<style>
+.demo-card-wide.mdl-card {
+width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+color: #fff;
+height: 176px;
+background: url('./img/itemBG.png') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+color: #fff;
+}
+button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+}
+</style>
+<script>
+  $(function(){
+    showItem();
+  });
+</script>
