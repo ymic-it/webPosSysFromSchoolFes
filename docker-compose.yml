@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+
+  php:
+    build: ./docker/php
+    volumes:
+      - ./src/www:/var/www/html
+    ports:
+      - "80:80"
+    environment:
+      TZ: Japan

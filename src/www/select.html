@@ -10,21 +10,57 @@
 <body onLoad="HTML_Load('topbar.html','top');">
   <div id="top"></div>
   <div class="row">
-    <div class="col-md-8 col-md-offset-1">
-      <div class="row">
+    <div class="col-md-8 ">
+      <div >
     <div id="itemList" class="row">
+
+    </div>
+    <!-- Colored raised button -->
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn">
+  会計
+</button>
+
+
+  </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="selectItems">
+    <div id="selectItems" class="selectItems" style="font-size: 50px">
 
     </div>
   </div>
     </div>
+
+
+
+
 </div>
+
+<dialog class="mdl-dialog" style="width: 1002px;; font-size: 40px">
+    <div class="mdl-dialog__content"  id="checkPrace">
+      <p id="selectItems" style="font-size: 40px">
+
+      </p>
+    </div>
+    <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+      <button type="button" class="mdl-button close" onClick=" dialog.close();">閉じる</button>
+    </div>
+  </dialog>
+
+
 </body>
 
 
 <!-- Wide card with share menu button -->
 <style>
 .demo-card-wide.mdl-card {
-width: 512px;
+width: 212px;
+}
+.selectItems {
+font-size: : 40px;
+top: 20px;
 }
 .demo-card-wide > .mdl-card__title {
 color: #fff;
@@ -44,7 +80,20 @@ button{
 }
 </style>
 <script>
+
+var dialog = document.querySelector('dialog');
+
   $(function(){
     showItem();
+
+    $('#btn').click(function(e) {
+      console.log("ok")
+      dialog.showModal();
+      postItem();
+      selectItemList = []
+
+ });
+
+
   });
 </script>
