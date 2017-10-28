@@ -5,7 +5,7 @@ itemList = {
   '1':{'name': 'レアチーズケーキ', 'price':120, 'type': 'food', 'postName': 'cake'},
   '2':{'name': '珈琲', 'price':120, 'type': 'drink', 'postName': 'coffee'},
   '3':{'name': '紅茶', 'price':120, 'type': 'drink', 'postName': 'straighttea'},
-  '4':{'name': 'Dr.Prepper', 'price':120, 'type': 'drink', 'postName': 'drpepper'}
+  '4':{'name': 'Dr.Prepper', 'price':150, 'type': 'drink', 'postName': 'drpepper'}
 };
 
 postBody = {
@@ -22,6 +22,7 @@ postBody = {
 };
 
 selectItemList = []
+setCount = 0;
 
 function showItem(){
 
@@ -59,8 +60,8 @@ function selectItem(itemId){
   }
 
   if(setCount > 0){
-    insertHtml +=  "セット割引" + -20 * setCount +  "<br>";
-    totalPrice -= 20 * setCount;
+    insertHtml +=  "セット割引" + -40 * setCount +  "<br>";
+    totalPrice -= 40 * setCount;
 
   }
 
@@ -76,18 +77,22 @@ function selectItem(itemId){
 function postItem(){
 
   sendData = postBody;
-
+  price = 0;
   selectItemList.forEach(function(val, int, array){
     sendData[itemList[val]['postName']] =   sendData[itemList[val]['postName']] + 1;
+    price = price + itemList[val]['price'];
+    console.log(itemList[val]['price']);
   });
 
-  console.log(sendData)
+    sendData['set'] = setCount;
+    sendData['total'] = price;
 
   $.ajax({
   type: "POST",
-  url: "https://script.google.com/a/gn.iwasaki.ac.jp/macros/s/AKfycbzbSjNJVCaBidaHAAMKcFySwyd4nsahb4O7OJY14hlCqtJSJA/exec",
+  url: "./post.php",
   data: sendData
 }).done(function( msg ) {
+  console.log(msg);
 });
 
 }
